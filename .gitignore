@@ -2,6 +2,9 @@
 /.idea
 /.vscode
 
+## environment vars
+.env
+
 ## system files
 .DS_Store
 
@@ -22,3 +25,4 @@
 
 storybook-static
 custom-elements.json
+.vercel
