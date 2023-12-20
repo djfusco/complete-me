@@ -3,17 +3,17 @@ const openai = new OpenAI({apiKey: process.env.CHAGPT_KEY});
 
 export default async function handler(req, res) {
 
-
         res.setHeader('Access-Control-Allow-Credentials', true)
         res.setHeader('Access-Control-Allow-Origin', '*')
-        // another common pattern
-        // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
         res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
         res.setHeader(
           'Access-Control-Allow-Headers',
           'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
         )
 
+        res.json("hello world");
+
+/*
     const search = 'complete this sentence - ' + req.query.search;
     const completion = await openai.chat.completions.create({
     messages: [
@@ -23,24 +23,10 @@ export default async function handler(req, res) {
       },
       { role: "user", content: search },
     ],
-
     model: "gpt-4-1106-preview",
     response_format: { type: "json_object" },
-    ///})
     });
-//    .then(result => {
-      /*res.setHeader('Cache-Control', 'max-age=0, s-maxage=1800');
-      res.setHeader("Access-Control-Allow-Credentials", "true");
-      res.setHeader("Access-Control-Allow-Origin", "*");
-      res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
-      res.setHeader("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version");
-      */
       res.json(completion.choices[0].message.content);
       console.log(completion.choices[0].message.content);
-//      })
-/*
-    .catch(error => {
-      console.error('Error:', error);
-    }); 
 */
 }
